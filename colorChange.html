@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button color change</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        *{
+    box-sizing: border-box;
+    padding:0;
+    margin: 0;
+
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+h1{
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #efefef;
+    border-radius: 1rem;
+
+}
+button{
+    padding: 1rem 2rem;
+    font-size:1.4rem ;
+    border-radius: 3rem;
+    cursor: ponter;
+    margin-top: 1rem;
+    border: none;
+    outline: none;
+transition: backround 0.4s;
+}
+button:hover{
+    background-color: rgb(147, 220, 220);
+
+}
+    </style>
+</head>
+<body>
+   <main>
+    <div class="container">
+        <h1>Current Color: <span class="current-color"> rgb(255,255,255)</span> </h1>
+        <button>Change Background</button>
+    </div>
+   </main>
+    <script>
+const mainButton = document.querySelector('button');
+const body = document.body;
+const currentColor = document.querySelector('.current-color');
+function randomColorGenerator(){
+    const red = Math.floor(Math.random()*256);
+    const green = Math.floor(Math.random()*256);
+    const blue = Math.floor(Math.random()*256);
+    const randomColor = `rgb(${red}, ${green}, ${blue})`;
+    return randomColor;
+}
+mainButton.addEventListener("click", ()=>{
+    const randomColor = randomColorGenerator();
+    body.style.backgroundColor= randomColor;
+    currentColor.textContent= randomColor;
+
+})
+
+
+    </script>
+</body>
+</html>
